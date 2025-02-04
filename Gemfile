@@ -33,7 +33,6 @@ gem 'chartkick'          # Charts for analytics
 gem 'groupdate'          # Grouping data by time  
 gem 'acts-as-taggable-on' # Tagging system  
 gem 'redis', '~> 4.0'
-gem 'faker'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
@@ -50,6 +49,11 @@ gem "thruster", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'database_cleaner-active_record'
+  gem 'shoulda-matchers'
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
