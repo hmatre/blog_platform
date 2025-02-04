@@ -1,0 +1,13 @@
+<h1><%= @post.title %></h1>
+<p><%= @post.body.html_safe %></p> <p>Views: <%= @post.views %></p>
+<p>Reading Time: <%= @post.reading_time %> minutes</p>
+<p>Tags: <%= raw @post.tag_list.map { |tag| link_to tag, tag_path(tag) }.join(', ') %></p>
+
+<h2>Comments</h2>
+<%= render @comments %>
+
+<h2>Add a Comment</h2>
+<%= form_with(model: [@post, @comment]) do |form| %>
+  <%= form.text_area :body %>
+  <%= form.submit "Submit" %>
+<% end %>

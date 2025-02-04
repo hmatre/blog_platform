@@ -1,0 +1,20 @@
+<h1>Admin Dashboard</h1>
+
+<h3>Most Viewed Posts</h3>
+<ul>
+  <% @most_viewed_posts.each do |post| %>
+    <li><%= link_to post.title, post_path(post) %> - <%= post.views %> views</li>
+  <% end %>
+</ul>
+
+<h3>Average Reading Time: <%= @avg_reading_time.round(2) %> mins</h3>
+
+<h3>Top Tags</h3>
+<ul>
+  <% @top_tags.each do |tag, count| %>
+    <li><%= tag %> - <%= count %> posts</li>
+  <% end %>
+</ul>
+
+<h3>Popular Posting Times</h3>
+<%= line_chart Post.group_by_hour_of_day(:created_at).count %>

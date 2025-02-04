@@ -1,0 +1,7 @@
+<div class="comment">
+  <p><%= comment.body %></p>
+  <p>By: <%= comment.user&.email %></p>
+  <% if current_user == comment.user %>
+    <%= link_to "Delete", post_comment_path(comment.post, comment), data: {turbo_method: :delete, confirm: "Are you sure?" } %>
+  <% end %>
+</div>

@@ -1,0 +1,10 @@
+<h1>Blog Posts</h1>
+
+<% @posts.each do |post| %>
+  <h2><%= link_to post.title, post %></h2>
+  <p><%= truncate(post.body, length: 200) %></p>
+  <p>Tags: <%= raw post.tag_list.map { |tag| link_to tag, tag_path(tag) }.join(', ') %></p>
+  <p>Views: <%= post.views %></p>
+  <p>Reading Time: <%= post.reading_time %> minutes</p>
+  <hr>
+<% end %>
